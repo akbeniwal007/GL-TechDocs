@@ -1,0 +1,44 @@
+{
+  "name": "@overleaf/docstore",
+  "description": "A CRUD API for handling text documents in projects",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node $NODE_APP_OPTIONS app.js",
+    "test:acceptance:_run": "mocha --recursive --reporter spec --timeout 15000 --exit $@ test/acceptance/js",
+    "test:acceptance": "npm run test:acceptance:_run -- --grep=$MOCHA_GREP",
+    "test:unit:_run": "mocha --recursive --reporter spec $@ test/unit/js",
+    "test:unit": "npm run test:unit:_run -- --grep=$MOCHA_GREP",
+    "nodemon": "nodemon --config nodemon.json",
+    "lint": "eslint --max-warnings 0 --format unix .",
+    "format": "prettier --list-different $PWD/'**/*.js'",
+    "format:fix": "prettier --write $PWD/'**/*.js'",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "@overleaf/logger": "^3.1.0",
+    "@overleaf/metrics": "^4.0.0",
+    "@overleaf/o-error": "^3.4.0",
+    "@overleaf/object-persistor": "^1.0.1",
+    "@overleaf/settings": "^3.0.0",
+    "async": "^3.2.2",
+    "body-parser": "^1.19.0",
+    "bunyan": "^1.8.15",
+    "celebrate": "^13.0.4",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.0",
+    "p-map": "^4.0.0",
+    "request": "^2.88.2",
+    "streamifier": "^0.1.1",
+    "underscore": "~1.12.1"
+  },
+  "devDependencies": {
+    "@google-cloud/storage": "^5.1.2",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^8.4.0",
+    "sandboxed-module": "~2.0.4",
+    "sinon": "~9.0.2",
+    "sinon-chai": "^3.7.0"
+  }
+}
